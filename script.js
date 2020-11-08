@@ -19,12 +19,6 @@ let schedule = function() {
     console.log(schedule);
 }
 
-// let getSchedule = function() {
-
-//     savedSchedule = JSON.parse(localStorage.getItem("schedule"));
-    
-// }
-
 function renderSavedTask() {
     let taskDescription = localStorage.getItem("task-description");
 
@@ -39,8 +33,7 @@ saveButton.addEventListener("click", function(event){
     let taskDescription = document.querySelector(".description").value;
 
     localStorage.setItem("task-description", taskDescription);
-
-    
+       
 });
 
 renderSavedTask();
