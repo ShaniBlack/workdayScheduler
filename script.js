@@ -2,7 +2,28 @@ let descriptions = document.querySelector(".description");
 let saveButton = document.querySelector("#saveButton");
 
 
-renderSavedTask();
+let schedules = {
+"time9": [],
+"time10": [],
+"time11": [],
+"time12": [],
+"time13": [],
+"time14": [],
+"time15": [],
+"time16": [],
+"time17": []
+};
+
+let schedule = function() {
+    localStorage.setItem("schedules", JSON.stringify(schedules));
+    console.log(schedule);
+}
+
+// let getSchedule = function() {
+
+//     savedSchedule = JSON.parse(localStorage.getItem("schedule"));
+    
+// }
 
 function renderSavedTask() {
     let taskDescription = localStorage.getItem("task-description");
@@ -20,7 +41,9 @@ saveButton.addEventListener("click", function(event){
     localStorage.setItem("task-description", taskDescription);
 
     
-})
+});
+
+renderSavedTask();
 
 
 
