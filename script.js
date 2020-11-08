@@ -16,14 +16,14 @@ let schedules = {
 
 let schedule = function() {
     localStorage.setItem("schedules", JSON.stringify(schedules));
-    console.log(schedule);
+    // console.log(schedule);
 }
 
 function renderSavedTask() {
     let taskDescription = localStorage.getItem("task-description");
 
     descriptions.textContent = taskDescription;
-    console.log(taskDescription);
+    // console.log(taskDescription);
 }
 
 
