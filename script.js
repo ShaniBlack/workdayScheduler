@@ -1,42 +1,32 @@
 let descriptions = document.querySelector(".description");
-let saveButton = document.querySelector("#saveButton");
+let saveButton = document.getElementsByClassName("saveBtn")[0];
 
 
-let schedules = {
-"time9": [],
-"time10": [],
-"time11": [],
-"time12": [],
-"time13": [],
-"time14": [],
-"time15": [],
-"time16": [],
-"time17": []
+
+let schedule = function () {
+  localStorage.setItem("schedules", JSON.stringify(schedules));
+  // console.log(schedule);
 };
 
-let schedule = function() {
-    localStorage.setItem("schedules", JSON.stringify(schedules));
-    // console.log(schedule);
-}
-
 function renderSavedTask() {
-    let taskDescription = localStorage.getItem("task-description");
+    for (let i = 9; i < 18; i++) {
+        let taskDescription = localStorage.getItem("hour" + i);   
+        document.querySelector("#hour" + i).value = taskDescription;
+    }
+  
 
-    descriptions.textContent = taskDescription;
-    // console.log(taskDescription);
 }
+// document.addEventListener("click", "button", function(event) {
+$(".saveBtn").on("click", function (event) {
+  event.preventDefault();
 
+  let note = this.previousElementSibling.getAttribute("id");
+//   console.log(note);
 
-saveButton.addEventListener("click", function(event){
-    event.preventDefault();
+  let taskDescription = this.previousElementSibling.value;
+//   console.log(taskDescription)
 
-    let taskDescription = document.querySelector(".description").value;
-
-    localStorage.setItem("task-description", taskDescription);
-       
+  localStorage.setItem(note, taskDescription);
 });
 
 renderSavedTask();
-
-
-
